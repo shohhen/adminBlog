@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use Canvas\Models\Post;
 use Canvas\Models\Tag;
