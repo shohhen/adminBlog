@@ -36,15 +36,15 @@ class PostController extends Controller
     /**
      * Display the specified published post with tags and topics.
      *
-     * @param int $id
+     * @param string $id
      * @return JsonResponse
      */
-    public function show(int $id): JsonResponse
+    public function show(string $id): JsonResponse
     {
         $post = Post::query()
             ->whereNotNull('published_at')
             ->with('tags:name,slug', 'topic:name,slug')
-            ->findOrFail($id);
+            ->findOrFail((string) $id);
 
         return response()->json([
             'post' => $post,
